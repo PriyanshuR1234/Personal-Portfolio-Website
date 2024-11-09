@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f3f4f6;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.login-box {
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    background: transparent;
+    color: #333;
+}
+
+.input-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #333;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #2196F3;
+    font-size: 12px;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0d83d0;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+p a {
+    color: #2196F3;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return validateForm()">
+                <div class="input-box">
+                    <input type="text" id="username">
+                    <label>Username</label>
+                </div>
+                <div class="or-text">OR</div>
+                <div class="input-box">
+                    <input type="text" id="houseCode">
+                    <label>House Code</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <p>Don't have an account? <a href="#">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var houseCode = document.getElementById("houseCode").value;
+            var password = document.getElementById("password").value;
+
+            if ((username === "" && houseCode === "") || password === "") {
+                alert("Please fill in either Username or House Code, and Password is required.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
